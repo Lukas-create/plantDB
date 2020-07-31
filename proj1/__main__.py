@@ -29,7 +29,7 @@ class Carex(Plants):
         self.habitat_in_germany = lebensraum
 
 
-german_carex = Carex("Carex acuta")
+german_carex = Carex("Carex acuta") #Alle daten/namen bisher nur placeholder
 german_carex.habitat_function(depth=0.4, groundwater=0.5, lebensraum='Alpen')
 german_carex.print_habitat()
 

@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-
+#bisher alle spezifischen Arten und Daten nur placeholder
 df = pd.read_excel('Pflanzendaten.xlsx')
 #print(df['Habitat:'])
 df1 = df.dropna()
@@ -19,3 +19,4 @@ def search(Spalte,eintrag,df):
         print(' ')
 
 search('Habitat:','Alpen',df1)
+print(df['Habitat:'])
