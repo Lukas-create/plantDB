@@ -1,22 +1,24 @@
 import pandas as pd
 import numpy as np
+from plant import Plant
 #bisher alle spezifischen Arten und Daten nur placeholder
-df = pd.read_excel('Pflanzendaten.xlsx')
+df = pd.read_csv('Pflanzendaten.csv')
 #print(df['Habitat:'])
 df1 = df.dropna()
 df2 = df1.to_numpy()
 #print (df.type())
 def search(Spalte,eintrag,df):
     df2 = df.to_numpy()
-    print(df.head())
+    #print(df.head())
     Spalte=df[Spalte]
-    Name=df['Pflanzenarten:']
+    Name=df['Pflanzenarten']
     for i in range(len(Spalte)):
         if Spalte[i]==eintrag:
-                print(Name[i])
-                print(df2[i, :])
+            #print(Name[i])
+            #print(df2[i, :])
+            plant = Plant(df2[i, 0], df2[i, 1], df2[i, 2], df2[i, 3], df2[i, 4])
+            plant.print_habitat()
     else:
         print(' ')
 
-search('Habitat:','Alpen',df1)
-print(df['Habitat:'])
+search('root',1,df1)
