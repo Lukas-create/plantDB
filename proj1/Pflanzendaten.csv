@@ -1,4 +1,23 @@
-﻿Pflanzenarten,Habitat,Depth to groundwater,scourge,root
-Carex acuta,Alpen,1,1,1
-Carex paradoxa,Alpen,2,2,2
-Alnus,Meer,3,3,3
+Pflanzen,NameSpez,Nativ?,Art,Vorkommen,Habitat
+Alnus,Alnus Incana,Ja,Baum,Aue,Alpenvorland
+Carex,Carex sylvatica,Ja,Gras,Aue,Alpenvorland
+Carex,Carex acuta,Ja,Krautig,Ufer,Alpenvorland
+Circaea,Circaea lutetiana,Ja,Krautig,Aue,Alpenvorland
+clematis,Clematis Vitalba,Ja,Kletterpflanze,Aue,Alpenvorland
+fraxinus,Fraxinus excelsior,Ja,Baum,Aue,Alpenvorland
+Froschbiß,Hydrocharis morsus-ranae,Ja,Wasserpflanze,Fluss,Alpenvorland
+Humulus,Humulus Lupulus,Ja,Kletterpflanze,Aue,Alpenvorland
+Myricaria,Myricaria germanica,Ja,Strauch,Aue,Alpenvorland
+Phalaris,Phalaris arundinacea,Ja,Gras,Ufer,Alpenvorland
+Phragmites,Phragmites australis,Ja,Gras,Ufer,Alpenvorland
+Populus,Populus nigra,Ja,Baum,Aue,Alpenvorland
+Populus,Populus alba,Ja,Baum,Aue,Alpenvorland
+Potamogeto,Potamogeto pectinatus,Ja,Krautig,Fluss,Alpenvorland
+Salix,Salix purpurea,Ja,Strauch,Ufer,Alpenvorland
+Salix,Salix alba,Ja,Baum,Aue,Alpenvorland
+Salix,Salix fragilis,Ja,Baum,Aue,Alpenvorland
+Salix,Salix eleagnos,Ja,Strauch,Ufer,Alpenvorland
+Solanum,Solanum Dulcamara,Ja,Kletterpflanze,Röhricht,Alpenvorland
+Sparganium,Sparganium erectum,Ja,Wasserpflanze,Fluss,Alpenvorland
+Typha,Typha latifola,Ja,Wasserpflanze,Fluss,Alpenvorland
+Ufer,Calamagrostis pseudophragmites,Ja,Gras,Ufer,Alpenvorland

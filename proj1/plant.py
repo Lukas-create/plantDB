@@ -1,13 +1,21 @@
 class Plant:
-    def __init__(self, species, habitat, groundwater, scourge, root):
-        self.root_depth = root
-        self.depth_to_groundwater = groundwater
+    def __init__(self, species, spezifisch, nativ, art, landschaft, habitat):
+        #self.root_depth = root
+        self.name_spezifisch = spezifisch
         self.habitat_in_germany = habitat
         self.species = species
+        self.vorkommen = landschaft
+        #self.scour = scourge
+        self.csl = art
+        self.land = nativ
 
     def print_habitat(self):
-        print("{0}: average root depth :{1}m minimum depth to groundwater: {2}m habitat:{3}".format(self.species,
-                                                                                         str(self.root_depth),
-                                                                                         str(self.depth_to_groundwater),
+        print("{0}: Spezifisch :{1} Nativ?: {2} Klasse:{3} Vorkommen:{4} Habitat:{5}".format(self.species,
+                                                                                         str(self.name_spezifisch),
                                                                                          str(
-                                                                                             self.habitat_in_germany)))
+                                                                                             self.land),
+                                                                                         str(self.csl),
+                                                                                         #str(self.scour),
+                                                                                         str(self.vorkommen),
+                                                                                         str(self.habitat_in_germany)))
+
