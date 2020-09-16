@@ -29,6 +29,6 @@ def habitat_search(Spalte, eintrag):
         else:
             print(' ')
 
-    search('Habitat', 'Alpenvorland', df1)
+    search(Spalte, eintrag, df1)
 
     #search(Spalte, eintrag, df1)
