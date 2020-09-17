@@ -10,7 +10,7 @@ class Plant:
         self.land = nativ
 
     def print_habitat(self):
-        print("{0}: Spezifisch :{1} Nativ?: {2} Klasse:{3} Vorkommen:{4} Habitat:{5}".format(self.species,
+        print("{0}: Spezifisch : {1} Nativ?: {2} Klasse :{3} Vorkommen :{4} Habitat :{5}".format(self.species,
                                                                                          str(self.name_spezifisch),
                                                                                          str(
                                                                                              self.land),
