@@ -2,7 +2,6 @@ import geopandas as gpd
 import xlsx as data
 from xlsx import habitat_search
 from gdal import ogr
-from plant import Plant
 from shapely.geometry import Point
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
@@ -28,7 +27,7 @@ def searchbycods():
     y = float(input('Enter y coordinate\n'))
     pointinbound("D:\GitHub\Riverengineering\Shape\Alpenvorland2.shp", x, y, 'Alpenvorland')
     pointinbound('D:\GitHub\Riverengineering\Shape\oberer rhein.shp', x, y, 'Oberrheingebiet')
-    pointinbound('D:\GitHub\Riverengineering\Shape\RHEIN1.shp', x, y, 'Unterrheingebiet')
+    pointinbound('D:\GitHub\Riverengineering\Shape\Tiefland.shp', x, y, 'Unterrheingebiet')
 
 def question():
     print('Enter 1 to seach by Habitat \n Enter 2 to search by coordinates')
