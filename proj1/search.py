@@ -25,7 +25,7 @@ def pointinbound(filename, x, y, Gebietsname):
 def searchbycods():
     x = float(input('Enter x coordinate\n'))
     y = float(input('Enter y coordinate\n'))
-    pointinbound("D:\GitHub\Riverengineering\Shape\Alpenvorland2.shp", x, y, 'Alpenvorland')
+    pointinbound(os.path.abspath("..") + "\Shape\Alpenvorland2.shp", x, y, 'Alpenvorland')
     pointinbound('D:\GitHub\Riverengineering\Shape\oberer rhein.shp', x, y, 'Oberrheingebiet')
     pointinbound('D:\GitHub\Riverengineering\Shape\Tiefland Rhein.shp', x, y, 'Niederrheinisches Tiefland')
 
