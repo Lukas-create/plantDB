@@ -14,10 +14,12 @@ shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
 def habitat_search(Spalte, eintrag):
     """
+    Args:
+        Spalte:     Spalte in der .csv Datei
+        eintrag:    Zeile in der .csv Datei
 
-    :param Spalte:
-    :param eintrag:
-    :return:
+    Returns:
+        Nichts
     """
     df = pd.read_csv('Pflanzendaten.csv', encoding='unicode_escape')
     if platform.system() == 'Linux':
@@ -41,19 +43,20 @@ def habitat_search(Spalte, eintrag):
 
 
 def search_by_habitat():
-    """
-    Nach eingabe des Habitats wird habitat_search aufgerufen
-    :return:
+    """Nach eingabe des Gebietsnamens wird habitat_search aufgerufen
+
+    Returns:
+        Nichts
     """
     Habitat = input('Enter name of habitat\n')
     habitat_search('Habitat', Habitat)
 
 
 def point_in_bound(filename, x, y, Gebietsname):
-    """hilfsfunktion checkt ob die eingegebenen Koordddinaten in einer vorhandenen Shapefile liegen.
+    """hilfsfunktion checkt ob die eingegebenen Koordinaten in einer der vorhandenen Shapefiles liegen.
 
-    wenn Koordinaten außerhalb liegen wird es ausgegeben, wenn sie innerhalb einer der
-    Shapefiles liegen werden Pflanzen dieses Habitats ausgegeben
+    wenn Koordinaten außerhalb liegen wird es als Text ausgegeben, wenn sie innerhalb einer der
+    Shapefiles liegen wird die habitat_search Funktion aufgerufen
 
     Args:
         filename: Name der Shapefile
@@ -74,23 +77,32 @@ def point_in_bound(filename, x, y, Gebietsname):
 
 
 def search_by_coordinates():
-    """
-    ermöglicht Koordinaten in der Konsole einzugeben
-    :return:
+    """ermöglicht es Koordinaten in der Konsole einzugeben
+
+    Nachdem die Koordinaten von dem Benutzer in der Konsole eingegeben wurden, wird die Funktion point_in_bound aufgerufen
+    für jede der drei bisher vorhandenen Shapefiles
+
+    Returns:
+        Nichts
     """
     x = float(input('Enter x coordinate\n'))
     y = float(input('Enter y coordinate\n'))
     point_in_bound(os.path.abspath("..") + "\Shape\Alpenvorland2.shp", x, y, 'Alpenvorland')
     point_in_bound(os.path.abspath("..") + "\Shape\oberer rhein.shp", x, y, 'Oberrheingebiet')
-    point_in_bound(os.path.abspath("..") + "\Shape\Tiefland Rhein.shp", x, y, 'Niederrheinisches Tiefland')
+    point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
 
 def question():
-    """
-    Frägt nach ob nach Habitat oder Koorddinaten gesucht werden soll
-    1: Suche nach Habitat
-    2: Suche nach Koordinaten
+    """Funktion ruft je nach Eingabe des benutzers search_by_habitat oder search_by_coordinates aus
+
+    Frägt in der Konsole nach, ob der Benutzer nach dem gewünschten Habitat oder Koordinaten suchen will
     und ruft dem entsprechend search_by_habitat oder seach_by_coordinates auf
-    :return:
+
+    Args:
+        1: Suche nach Habitat
+        2: Suche nach Koordinaten
+
+    Returns:
+        Nichts
     """
     print('Enter 1 to seach by Habitat \n Enter 2 to search by coordinates')
     src=int(input('Enter here:'))
@@ -102,7 +114,7 @@ def question():
     else:
         print('no data')
 
-#question()
+question()
 
 
 

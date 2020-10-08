@@ -7,13 +7,13 @@ class Plant:
     """
     def __init__(self, species, spezifisch, nativ, art, landschaft, habitat):
         """
-
-        :param species: Pflanzen Spezies
-        :param spezifisch: Pflanzenname
-        :param nativ: Native oder invasive Spezies
-        :param art: Klasse der Pflanze
-        :param landschaft: Vorkommen in der Aue
-        :param habitat: Lebensraum
+        Args:
+            species: Pflanzen Spezies
+            spezifisch: Pflanzenname
+            nativ: Native oder invasive Spezies
+            art: Art der Pflanze
+            landschaft: Vorkommen in der Aue/am Flussufer
+            habitat: Lebensraum
         """
         #self.root_depth = root
         self.name_spezifisch = spezifisch
@@ -27,9 +27,11 @@ class Plant:
     def print_habitat(self):
         """
         Printet die Pflanzenparameter als Text in der Konsole
-        :return:
+
+        Returns:
+            Nichts
         """
-        print("{0}: Spezifisch : {1} Nativ?: {2} Klasse :{3} Vorkommen :{4} Habitat :{5}".format(self.species,
+        print("\nGattung:\n{0}\nName:\n{1}\nNativ?:\n{2}\nKlasse:\n{3}\nVorkommen:\n{4}\nHabitat:\n{5}".format(self.species,
                                                                                          str(self.name_spezifisch),
                                                                                          str(
                                                                                              self.land),
