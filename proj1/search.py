@@ -1,25 +1,46 @@
 """
-function functionality related to searching for matching Vegetation in Pflanzendaten.csv
+functions related to search for vegetation matching the users input
 """
 import geopandas as gpd
 import numpy as np
 import pandas as pd
 import os
 import platform
+import sqlite3
 from gdal import ogr
 from plant import Plant
 from shapely.geometry import Point
 
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
-def habitat_search(Spalte, eintrag):
-    """
+def search_db_via_query(query):
+    '''
+
     Args:
-        Spalte:     Spalte in der .csv Datei
-        eintrag:    Zeile in der .csv Datei
+        query:
 
     Returns:
-        Nichts
+
+    '''
+    connection = sqlite3.connect("Pflanzendaten.db")
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM plants WHERE " + query)
+    content = cursor.fetchall()
+    print(content)
+    print("value 1 means the plant is nativ to germany")
+    connection.close()
+
+def habitat_search(column, entry):
+    """function searching for vegetation matching the users input
+
+
+
+    Args:
+        column:     column in the .csv file
+        entry:    entry in the .csv file
+
+    Returns:
+        nothing
     """
     df = pd.read_csv('Pflanzendaten.csv', encoding='unicode_escape')
     if platform.system() == 'Linux':
@@ -28,62 +49,63 @@ def habitat_search(Spalte, eintrag):
         df = pd.read_csv('Pflanzendaten.csv', encoding='unicode_escape')
     df1 = df.dropna()
     df2 = df1.to_numpy()
-    def search(Spalte,eintrag,df):
+    def search(column,entry,df):
         df2 = df.to_numpy()
-        Spalte=df[Spalte]
+        column=df[column]
         Name=df['NameSpez']
-        for i in range(len(Spalte)):
-            if Spalte[i]==eintrag:
+        for i in range(len(column)):
+            if column[i]==entry:
                 plant = Plant(df2[i, 0], df2[i, 1], df2[i, 2], df2[i, 3], df2[i, 4], df2[i, 5])
                 plant.print_habitat()
         else:
-            print(' ')
+            print('no data available')
 
-    search(Spalte, eintrag, df1)
+    search(column, entry, df1)
+    search(column, entry, df1)
 
 
 def search_by_habitat():
-    """Nach eingabe des Gebietsnamens wird habitat_search aufgerufen
+    """after user input, habitat_search(..) gets called
 
     Returns:
-        Nichts
+        nothing
     """
     Habitat = input('Enter name of habitat\n')
     habitat_search('Habitat', Habitat)
 
 
-def point_in_bound(filename, x, y, Gebietsname):
-    """hilfsfunktion checkt ob die eingegebenen Koordinaten in einer der vorhandenen Shapefiles liegen.
+def point_in_bound(filename, x, y, area):
+    """function checks if the coordinates provided by the user are matching with a shapefile
 
-    wenn Koordinaten außerhalb liegen wird es als Text ausgegeben, wenn sie innerhalb einer der
-    Shapefiles liegen wird die habitat_search Funktion aufgerufen
+    if the provided coordinates are out of bounds, a string will be printed in the console to let the user know, 
+    if they are matching one of the shapefiles, habitat_search(..) gets called
 
     Args:
-        filename: Name der Shapefile
-        x: X - Koordinate
-        y: Y - Koordinate
-        Gebietsname: Name der Shapefile, entsprechend dem Gebietsnamen
+        filename: shapefilename
+        x: x - coordinate
+        y: y - coordinate
+        area: name of the area
 
     Returns:
-        Nichts
+        text string to console
     """
     file_shape = gpd.read_file(filename)
     polygon = list(file_shape.geometry)[0]
     point = Point(x, y)
     if polygon.contains(point):
-        habitat_search('Habitat', Gebietsname)
+        habitat_search('Habitat', area)
     else:
-        print('Koordinaten außerhalb von \n' + Gebietsname + '\n')
+        print('Koordinaten außerhalb von \n' + area + '\n')
 
 
 def search_by_coordinates():
-    """ermöglicht es Koordinaten in der Konsole einzugeben
+    """function that lets the user input coordinates
 
-    Nachdem die Koordinaten von dem Benutzer in der Konsole eingegeben wurden, wird die Funktion point_in_bound aufgerufen
-    für jede der drei bisher vorhandenen Shapefiles
+    after asking the user to input x and y coordinates,
+    point_in_bound(..) gets called for the 3 provided shapefiles
 
     Returns:
-        Nichts
+        nothing
     """
     x = float(input('Enter x coordinate\n'))
     y = float(input('Enter y coordinate\n'))
@@ -92,25 +114,30 @@ def search_by_coordinates():
     point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
 
 def question():
-    """Funktion ruft je nach Eingabe des benutzers search_by_habitat oder search_by_coordinates aus
+    """function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates
 
-    Frägt in der Konsole nach, ob der Benutzer nach dem gewünschten Habitat oder Koordinaten suchen will
-    und ruft dem entsprechend search_by_habitat oder seach_by_coordinates auf
+    prints string in console to ask the user if he wants to search by putting in coordinates or the name of the habitat,
+    furthermore is asking the user if he wants to search by the name of the habitat in the provided csv file or database
 
     Args:
-        1: Suche nach Habitat
-        2: Suche nach Koordinaten
+        1: calls search_db_via_query(..)
+        2: calls search_by_coordinates(..)
+        3: calls search_by_habitat(..)
 
     Returns:
-        Nichts
+        text string 'no data' if the input is anything else then 1, 2 or 3
     """
-    print('Enter 1 to seach by Habitat \n Enter 2 to search by coordinates')
+    print('Enter 1 to seach by habitat in database\nEnter 2 to search by coordinates\nEnter 3 to search by habitat in csv file')
     src=int(input('Enter here:'))
 
     if src==1:
-        search_by_habitat()
+        habitat = input('Enter name of habitat\n')
+        query = "habitat = '" + habitat + "'"
+        search_db_via_query(query)
     elif src==2:
         search_by_coordinates()
+    elif src==3:
+        search_by_habitat()
     else:
         print('no data')
 

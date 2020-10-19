@@ -8,10 +8,10 @@ class Plant:
     def __init__(self, species, spezifisch, nativ, art, landschaft, habitat):
         """
         Args:
-            species: Pflanzen Spezies
-            spezifisch: Pflanzenname
-            nativ: Native oder invasive Spezies
-            art: Art der Pflanze
+            species: plant species
+            spezifisch: specific plant name
+            nativ: shows value "1" if the plant is nativ
+            art: plant type
             landschaft: Vorkommen in der Aue/am Flussufer
             habitat: Lebensraum
         """
@@ -26,7 +26,7 @@ class Plant:
 
     def print_habitat(self):
         """
-        Printet die Pflanzenparameter als Text in der Konsole
+        prints the plant parameters as string in console
 
         Returns:
             Nichts

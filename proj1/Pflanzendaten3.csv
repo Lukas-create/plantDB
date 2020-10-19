@@ -1,0 +1,71 @@
+species,name,nativ,type,occurance,habitat,waterdepthmin,waterdepthmax,rootdepth,floodheightmax,floodloss,floodduration
+TEXT,,,,,,MIN,MAX,MIN,MAX,,MAX
+Alnus,Alnus Incana ,1,Baum,Aue,Alpenvorland/breisach,90,,90cm ver und 2-3m horizontal,282 (2),<25 (2),1
+Carex,Carex sylvatica,1,gras,Aue,Alpenvorland,,,,,,1
+Carex,Carex acuta,1,Krautig,Ufer,Alpenvorland,,,,,,1
+Circaea,Circaea lutetiana,1,Krautig,Aue,Alpenvorland,,,,,,1
+clematis,Clematis Vitalba,1,Kletterpflanze,Hohe Aue,Alpenvorland,,,,,,1
+fraxinus,Fraxinus excelsior,1,Baum,Aue,Alpenvorland/breisach,,,,340 (2),<25 (2),45(3)
+Froschbiss,Hydrocharis morsus-ranae,1,Wasserpflanze,Fluss,Alpenvorland,20,40,,,,1
+Humulus,Humulus Lupulus,1,Kletterpflanze,Aue/,Alpenvorland,,,,,,1
+Myricaria,Myricaria germanica,1,Strauch,Aue,Alpenvorland,,,,,,1
+Phalaris,Phalaris arundinacea,1,Gras,Ufer,Alpenvorland,,,,,,1
+Phragmites,Phragmites australis,1,Gras,Ufer/Sumpf,Alpenvorland,,,,,,1
+Populus,Populus nigra,1,Baum,Aue,Alpenvorland/breisach,,,,323(2),,1
+Populus,Populus alba,1,Baum,Aue,Alpenvorland/breisach,,,,180(2),,1
+Potamogeto,Potamogeto pectinatus,1,Krautig,Fluss,Alpenvorland,20,350,,,,1
+Salix,Salix purpurea,1,Strauch,Ufer,Alpenvorland/breisach,,,,210 (2),,1
+Salix,Salix alba ,1,Baum,Aue,Alpenvorland/Breisach,,,,350 (1),,169(1)
+Salix,Salix fragilis,1,baum,Aue,Alpenvorland,,,,351 (2),,1
+Salix,Salix eleagnos,1,Strauch,Ufer,Alpenvorland/Breisach,,,,,,1
+Solanum,Solanum Dulcamara,1,Kletterpflanze,Aue/Rhricht,Alpenvorland,,,,,,1
+Sparganium,Sparganium erectum,1,Wasserpflanze,Fluss,Alpenvorland,,,,,,1
+Typha,Typha latifola,1,Wasserpflanze,Fluss,Alpenvorland,,,,,,1
+Ufer,Calamagrostis pseudophragmites,1,gras,Ufer,Alpenvorland,,,,,,1
+Betula pendula,,1,,,niederrheinisches Tiefland,,,,240 (2),<25 (2),1
+Quercus robur,,1,,,niederrheinisches Tiefland,,,,349 (2),absterben jungwuchs (2),113 (altholz) 37(Stangenholz) (3)  
+Betula pubescens s.str.,,1,,,niederrheinisches Tiefland,,,,,,1
+Alnus glutinosa,,1,,,niederrheinisches Tiefland,,,,312 (2),<50 (2),29-45 (3)
+Fraxinus excelsior,,1,,,niederrheinisches Tiefland,,,,,,1
+Frangula alnus Mill.,,1,,,niederrheinisches Tiefland,,,,,,1
+Ribes rubrum  ,,1,,,niederrheinisches Tiefland,,,,,,1
+Ribes nigrum,,1,,,niederrheinisches Tiefland,,,,,,1
+Rubus caesius,,1,,,niederrheinisches Tiefland,,,,300 (2),,1
+Populus nigra,,1,,,niederrheinisches Tiefland,,,,,,1
+Viburnum opulus,,1,,,niederrheinisches Tiefland,,,,200 (1),280 - 300 <25 (2),120 (1)
+Prunus padus,,1,,,niederrheinisches Tiefland,,,,,,1
+Ulmus laevis Pall.,,1,,,niederrheinisches Tiefland,,,,400 (2),absterben jungwuchs (2),1
+Salix fragilis,,1,,,niederrheinisches Tiefland,,,,,,1
+Salix viminalis,,1,,,niederrheinisches Tiefland,,,,>250 (2),,1
+Salix aurita,,1,,,niederrheinisches Tiefland,,,,,,1
+Salix purpurea,,1,,,niederrheinisches Tiefland,,,,,,1
+Ribes uva-crispa,,1,,,niederrheinisches Tiefland,,,,,,1
+Ulmus minor,,1,,,niederrheinisches Tiefland,,,,270 (2),absterben jungwuchs (2),1
+Salix cinerea,,1,,,niederrheinisches Tiefland,,,,200 (2),,1
+Groenlandia densa (L.) Fourr.,,1, stark gefhrdet (2),,Breisach ,,,,,,1
+Potamogeto pectinatus,,1,,,Breisach ,,,,,,1
+Potamogeton perfoliatus,,1 vorwarnliste,,,Breisach ,,,,,,1
+Hippuris vulgaris,,1 vorwarnliste,,,Breisach ,,,,,,1
+Epilobium dodonaei,,1,,,Breisach ,,,,,,1
+Scrophularia canina,,1,,,Breisach ,,,,,,1
+Calamagrostis pseudophragmites,,1 stark gefhrdet (2),,,Breisach ,,,,,,1
+Gypsophila repens,,1,,,Breisach ,,,,,,1
+Salix nigricans,,1,,,Breisach ,,,,,,1
+Hippophae rhamnoides subsp. fluviatilis Soest,,1, gefhrdet (3),,Breisach ,,,,,,1
+Ulmus minor,,1,,,Breisach ,,,,270 (2),absterben jungwuchs (2),1
+Quercus robur,,1,,,Breisach ,,,,,,1
+Alnus glutinosa,,1,,,Breisach ,,,,,,1
+Populus,Populus nigra,1,Baum,Aue,Breisach ,,,,,,1
+Populus,Populus alba,1,Baum,Aue,Breisach ,,,,,,1
+Salix,Salix purpurea,1,Strauch,Ufer,Breisach ,,,,,,1
+Salix,Salix alba ,1,Baum,Aue,Breisach ,,,,,,1
+Salix,Salix eleagnos,1,Strauch,Ufer,Breisach ,,,,,,1
+fraxinus,Fraxinus excelsior,1,Baum,Aue,Breisach ,,,,,,1
+Ulmus laevis (= Ulmus effusa),,1,,,,,,,,,1
+Rhamnus cathartica,,1,,,,,,,190-200 (2),<25 (2),1
+robinia pseudacacia,,etablierte (neophytische) Vorkommen,,,,,,,135-140 (2),<50 (2),55(3)
+cornus sanguinea,,1,,,,,,,200(1),<50(2),120(1)
+sambucus nigra,,1,,,,,,,250 (2),>50(2),1
+prunus spinosa,,1,,,,,,,250 (2),>50(2),1
+Euonymus europaeus,,1,,,,,,,190 (1),,117 (1)
+acer pseudoplatanus,,1,,,,,,,150 - 190 (4),,40 (3)
