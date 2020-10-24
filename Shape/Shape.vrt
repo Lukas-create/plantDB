@@ -1,0 +1,28 @@
+<VRTDataset rasterXSize="14391" rasterYSize="7789">
+  <SRS dataAxisToSRSAxisMapping="1,2">PROJCS["WGS 84 / Pseudo-Mercator",GEOGCS["WGS 84",DATUM["WGS_1984",SPHEROID["WGS 84",6378137,298.257223563,AUTHORITY["EPSG","7030"]],AUTHORITY["EPSG","6326"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4326"]],PROJECTION["Mercator_1SP"],PARAMETER["central_meridian",0],PARAMETER["scale_factor",1],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AXIS["Easting",EAST],AXIS["Northing",NORTH],EXTENSION["PROJ4","+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs"],AUTHORITY["EPSG","3857"]]</SRS>
+  <GeoTransform>  5.1121145730000001e+05,  9.2767600000000002e+01,  0.0000000000000000e+00,  7.0202197213000003e+06,  0.0000000000000000e+00, -1.4450800000000001e+02</GeoTransform>
+  <VRTRasterBand dataType="Int16" band="1">
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">2506</MDI>
+      <MDI key="STATISTICS_MEAN">311.46538374565</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">325.6895977175</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">100</MDI>
+    </Metadata>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Shape.0.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="13201" RasterYSize="7789" DataType="Byte" BlockXSize="13201" BlockYSize="7789" />
+      <SrcRect xOff="0" yOff="0" xSize="13201" ySize="7789" />
+      <DstRect xOff="0" yOff="0" xSize="13201" ySize="7789" />
+    </SimpleSource>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="1">Shape.1.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1190" RasterYSize="7789" DataType="Byte" BlockXSize="1190" BlockYSize="7789" />
+      <SrcRect xOff="0" yOff="0" xSize="1190" ySize="7789" />
+      <DstRect xOff="13201" yOff="0" xSize="1190" ySize="7789" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

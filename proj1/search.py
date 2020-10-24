@@ -10,7 +10,8 @@ import sqlite3
 from gdal import ogr
 from plant import Plant
 from shapely.geometry import Point
-
+from tabulate import tabulate
+import gdal
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
 def search_db_via_query(query):
@@ -26,8 +27,8 @@ def search_db_via_query(query):
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM plants WHERE " + query)
     content = cursor.fetchall()
-    print(content)
-    print("value 1 means the plant is nativ to germany")
+    print(tabulate((content), headers=['species','name','nativ','type','occurance','habitat','waterdepthmin','waterdepthmax','rootdepth','floodheightmax','floodloss','floodduration']))
+    print("\nvalue 1 means the plant is nativ to germany")
     connection.close()
 
 def habitat_search(column, entry):
@@ -48,21 +49,17 @@ def habitat_search(column, entry):
     else:
         df = pd.read_csv('Pflanzendaten.csv', encoding='unicode_escape')
     df1 = df.dropna()
-    df2 = df1.to_numpy()
     def search(column,entry,df):
-        df2 = df.to_numpy()
-        column=df[column]
-        Name=df['NameSpez']
+        df2 = df1.to_numpy()
+        column = df[column]
         for i in range(len(column)):
-            if column[i]==entry:
-                plant = Plant(df2[i, 0], df2[i, 1], df2[i, 2], df2[i, 3], df2[i, 4], df2[i, 5])
+            if column[i] == entry:
+                plant = Plant(df2[i, 0], df2[i, 1], df2[i, 2], df2[i, 3], df2[i, 4], df2[i, 5], df2[i, 6], df2[i, 7], df2[i, 8], df2[i, 9], df2[i, 10], df2[i, 11])
                 plant.print_habitat()
         else:
-            print('no data available')
+            print('no data')
 
     search(column, entry, df1)
-    search(column, entry, df1)
-
 
 def search_by_habitat():
     """after user input, habitat_search(..) gets called
@@ -70,9 +67,8 @@ def search_by_habitat():
     Returns:
         nothing
     """
-    Habitat = input('Enter name of habitat\n')
-    habitat_search('Habitat', Habitat)
-
+    habitat = input('Enter name of habitat\n')
+    habitat_search('habitat', habitat)
 
 def point_in_bound(filename, x, y, area):
     """function checks if the coordinates provided by the user are matching with a shapefile
@@ -93,25 +89,39 @@ def point_in_bound(filename, x, y, area):
     polygon = list(file_shape.geometry)[0]
     point = Point(x, y)
     if polygon.contains(point):
-        habitat_search('Habitat', area)
-    else:
-        print('Koordinaten außerhalb von \n' + area + '\n')
+        habitat_search('habitat', area)
+        print('Enter 1 if you want elevation data for the coordinates\nEnter 2 if you dont want elevation data')
+        src = int(input('Enter here:'))
 
+        if src == 1:
+            elevation(x, y)
+        elif src == 2:
+            print('done')
+    else:
+        print('\ncoordinates out of \n' + area + '\nplease check provided shapefile for suitable coordinates\n')
 
 def search_by_coordinates():
     """function that lets the user input coordinates
 
-    after asking the user to input x and y coordinates,
-    point_in_bound(..) gets called for the 3 provided shapefiles
+    after asking the user to input x and y coordinates,point_in_bound(..) gets called for the 3 provided shapefiles,
+    afterwards the user gets asked if he wants to receive elevation data for the input coordinates
 
     Returns:
         nothing
     """
     x = float(input('Enter x coordinate\n'))
     y = float(input('Enter y coordinate\n'))
-    point_in_bound(os.path.abspath("..") + "\Shape\Alpenvorland2.shp", x, y, 'Alpenvorland')
-    point_in_bound(os.path.abspath("..") + "\Shape\oberer rhein.shp", x, y, 'Oberrheingebiet')
+    point_in_bound(os.path.abspath("..") + "\Shape\Alpenvorlandgesamt.shp", x, y, 'Alpenvorland')
+    point_in_bound(os.path.abspath("..") + "\Shape\oberrheinmaintiefland.shp", x, y, 'Oberrheingebiet')
     point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
+
+def elevation(x, y):
+    file = os.path.abspath("..") + "\Shape\Shape.vrt"
+    layer = gdal.Open(file)
+    gt = layer.GetGeoTransform()
+    rasterx = int((x - gt[0]) / gt[1])
+    rastery = int((y - gt[3]) / gt[5])
+    print('elevation =', layer.GetRasterBand(1).ReadAsArray(rasterx,rastery, 1, 1)[0][0], 'm above sea level')
 
 def question():
     """function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates
@@ -127,7 +137,7 @@ def question():
     Returns:
         text string 'no data' if the input is anything else then 1, 2 or 3
     """
-    print('Enter 1 to seach by habitat in database\nEnter 2 to search by coordinates\nEnter 3 to search by habitat in csv file')
+    print('Enter 1 to search by habitat in database with detailed information\nEnter 2 to search by coordinates\nEnter 3 to search by habitat in csv file for a quick overview without detail')
     src=int(input('Enter here:'))
 
     if src==1:
