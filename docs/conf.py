@@ -31,7 +31,7 @@ autodoc_mock_imports = ['alphashape', 'numpy', 'gdal', 'geopandas', 'rasterstats
 import sphinx_rtd_theme
 from sphinx.locale import _
 
-project = u'geo-utils'
+project = u'plantDB'
 slug = re.sub(r'\W+', '-', project.lower())
 version = '0.0.2'
 release = '0.0.2'
