@@ -1,32 +1,37 @@
 """
-Spezifikation der Pflanze
+plant specifications
 """
-
-
 class Plant:
     """
 
     """
 
-    def __init__(self, species, name, nativ, type, occurance, habitat, waterdepthmin, waterdepthmax, rootdepth, floodheightmax, floodloss, flooddurationmax):
-        """
+    def __init__(self, species, name, nativ, habitat, endangered, waterdepthmin, waterdepthmax, rootdepth, groundwatertablechange, floodheightmax, floodloss, flooddurationmax):
+        '''
+
         Args:
-            species: plant species
-            spezifisch: specific plant name
-            nativ: shows value "1" if the plant is nativ
-            art: plant type
-            landschaft: Vorkommen in der Aue/am Flussufer
-            habitat: Lebensraum
-        """
+            species: scientific name
+            name: common german name
+            nativ: equals 1 if the plant is nativ, 0 if its not
+            habitat: habit name of the plant
+            endangered: information about the endangerment status of the plant
+            waterdepthmin: minimal required water depth
+            waterdepthmax: maximum depth to groundwater
+            rootdepth: average root depth
+            groundwatertablechange: maximum change in groundwater table that the plant can survive
+            floodheightmax: maximum flood height the plant can survive
+            floodloss: losses during maximum height and days that occured in plant population
+            flooddurationmax: maximum day of flooding the plant can survive
+        '''
         self.species = species
         self.name_german = name
         self.status = nativ
-        self.plant_type = type
-        self.occurance_in_floodplain = occurance
+        self.is_endangered = endangered
         self.habitat_in_germany = habitat
         self.minimum_waterdepth = waterdepthmin
         self.maximum_waterdepth = waterdepthmax
         self.average_root_depth = rootdepth
+        self.change_of_groundwatertable = groundwatertablechange
         self.critical_flood_height = floodheightmax
         self.plant_mortality_during_critial_flooding = floodloss
         self.critical_flood_duration = flooddurationmax
@@ -36,28 +41,21 @@ class Plant:
         prints the plant parameters as string in console
 
         Returns:
-            Nichts
+            String in console
         """
-        print('\nscientific name:\n{0}\ncommon german name:\n{1}\nstatus:\n{2}\noccurance:{4}\nHabitat:\n{5}{6}{7}'.format(self.species,
-                                                                                                                     str(self.name_german),
-                                                                                                                     str(self.status),
-                                                                                                                     str(self.plant_type),
-                                                                                                                     str(self.occurance_in_floodplain),
-                                                                                                                     str(self.habitat_in_germany),
-                                                                                                                     str(self.minimum_waterdepth),
-                                                                                                                     str(self.maximum_waterdepth),
-                                                                                                                     str(self.average_root_depth),
-                                                                                                                     str(self.critical_flood_height),
-                                                                                                                     str(self.plant_mortality_during_critial_flooding),
-                                                                                                                     str(self.critical_flood_duration)))
+        print('\nscientific name:\n{0}\ncommon german name:\n{1}\nstatus:\n{2}\nendangered?:\n{3}'.format(self.species,
+                                                                                        str(self.name_german),
+                                                                                        str(self.status),
+                                                                                        str(self.habitat_in_germany),
+                                                                                        str(self.is_endangered),
+                                                                                        str(self.minimum_waterdepth),
+                                                                                        str(self.maximum_waterdepth),
+                                                                                        str(self.average_root_depth),
+                                                                                        str(self.change_of_groundwatertable),
+                                                                                        str(self.critical_flood_height),
+                                                                                        str(self.plant_mortality_during_critial_flooding),
+                                                                                        str(self.critical_flood_duration)))
 
 
-'''class aquaticplant
-    def __init__(self, species, name, nativ, velocity, waterdepthmin, waterdepthmax):
-        self.species = species
-        self.name = name
-        self.nativ = nativ
-        self.flow_velocity = velocity
-        self.minimal_required_waterdepth = waterdepthmin
-        self.maximum_allowed_waterdepth = waterdepthmax'''
+
 

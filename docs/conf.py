@@ -11,7 +11,7 @@ import datetime
 
 
 def is_development_build():
-    # PR builds have an interger version
+    # PR builds have an integer version
     re_version = re.compile(r'^[\d]+$')
     if 'READTHEDOCS' in os.environ:
         version = os.environ.get('READTHEDOCS_VERSION', '')
@@ -26,7 +26,7 @@ sys.path.append(os.path.abspath('..') + '/plantDB')
 
 # the following modules will be mocked (i.e. bogus imports - required for C-dependent packages)
 autodoc_mock_imports = ['alphashape', 'numpy', 'gdal', 'geopandas', 'rasterstats', 'scikit-image',
-                        'osr', 'pandas', 'shapely']
+                        'osr', 'pandas', 'shapely', 'tabulate', 'sqlite3', 'os', 'platform']
 
 import sphinx_rtd_theme
 from sphinx.locale import _
@@ -93,7 +93,7 @@ html_context = {
     'date': datetime.date.today().strftime('%Y-%m-%d'),
     'display_github': True,
     'github_user': 'Lukas-create',
-    'github_repo': 'Riverengineering',
+    'github_repo': 'plantDB',
     'github_version': 'master/',
 }
 
