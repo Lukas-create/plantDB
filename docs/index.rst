@@ -52,7 +52,6 @@ Example
 ~~~~~~~
 Following are three code block examples giving insight on how to use the tool
 
-Example 1: search for vegetation via coordinate input
 .. code:: python
 
    import plantDB as re
@@ -64,12 +63,8 @@ Example 1: search for vegetation via coordinate input
    #by calling the function the user gets asked to provide x and y coordinates in the python console
 
 
-   #after providing coordinates in the console, point_in_bound() gets called to check if the coordinates are matching any of the provided shapefiles
-   #if they are inside one of the shapefiles, matching vegetation from the database 'Pflanzendaten.db' gets printed in the console
+   #after providing coordinates in the console, point_in_bound() gets called to check if the coordinates are matching any of the provided shapefiles. If they are inside one of the shapefiles, matching vegetation from the database 'Pflanzendaten.db' gets printed in the console
 
-
-
-Example 2: search for data in database
 .. code:: python
 
    import plantDB as re
@@ -80,7 +75,6 @@ Example 2: search for data in database
 
    #the above function call will print all plants including their parameters which are located in 'Alpenvorland'. plantDB supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database
 
-Example 3:
 .. code:: python
 
    import plantDB as re
@@ -131,7 +125,7 @@ Scripts and functions
 .. automodule:: plant
    :members:
 
-Search something
+Search for vegetation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. automodule:: search
    :members:
