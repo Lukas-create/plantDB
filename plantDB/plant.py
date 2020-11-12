@@ -1,13 +1,15 @@
 """
 plant specifications
 """
+
+
 class Plant:
     """
 
     """
 
     def __init__(self, species, name, nativ, habitat, endangered, waterdepthmin, waterdepthmax, rootdepth, groundwatertablechange, floodheightmax, floodloss, flooddurationmax):
-        '''
+        """
 
         Args:
             species: scientific name
@@ -22,7 +24,7 @@ class Plant:
             floodheightmax: maximum flood height the plant can survive
             floodloss: losses during maximum height and days that occured in plant population
             flooddurationmax: maximum day of flooding the plant can survive
-        '''
+        """
         self.species = species
         self.name_german = name
         self.status = nativ
@@ -55,7 +57,3 @@ class Plant:
                                                                                         str(self.critical_flood_height),
                                                                                         str(self.plant_mortality_during_critial_flooding),
                                                                                         str(self.critical_flood_duration)))
-
-
-
-

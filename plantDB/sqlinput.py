@@ -1,12 +1,11 @@
 import csv
 import sqlite3
-from tabulate import tabulate
 
 connection = sqlite3.connect("Pflanzendaten.db")
 cursor = connection.cursor()
 
 
-sql_command ="""
+sql_command = """
 CREATE TABLE IF NOT EXISTS plants (
 species VARCHAR(255),
 name VARCHAR(255),
@@ -27,15 +26,14 @@ cursor.execute(sql_command)
 
 
 def inputquestion():
-    '''function that lets the user put data into the database
+    """function that lets the user put data into the database
 
     the function provides 2 options for data input, if option 1 is chosen via console input "1", the user can provide the name of a csv file
     if option 2 is chosen, the user can add a single row via sql command. If neither of those two options is chosen, the function will print a string in the python console
 
     Returns:
         string in console if none of the two options above is chosen
-
-    '''
+    """
     print('Enter 1 to input data from csv file\n Enter 2 to input data via sql command')
     src = int(input('Enter here:'))
     if src == 1:
@@ -58,10 +56,7 @@ def inputquestion():
     else:
         print('only able to import data to table using csv file or sql command')
 
+
 cursor.execute("SELECT * FROM plants")
 content = cursor.fetchall()
 print(content)
-
-
-
-

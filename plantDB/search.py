@@ -10,9 +10,10 @@ from plant import Plant
 from shapely.geometry import Point
 from tabulate import tabulate
 import gdal
-import sys
+
 
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
+
 
 def search_db_via_query(query):
     """Function that checks database for matching entries with user input.
@@ -30,10 +31,11 @@ def search_db_via_query(query):
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM plants WHERE " + query)
     content = cursor.fetchall()
-    print(tabulate((content), headers=['species','name','nativ','endangered','habitat','waterdepthmin','waterdepthmax','rootdepth','groundwatertablechange','floodheightmax','floodloss','floodduration']))
+    print(tabulate((content), headers=['species', 'name', 'nativ', 'endangered', 'habitat', 'waterdepthmin', 'waterdepthmax', 'rootdepth', 'groundwatertablechange', 'floodheightmax', 'floodloss', 'floodduration']))
     print('Status 1 equals nativ')
 
     connection.close()
+
 
 def habitat_search(column, entry):
     """Function searches in csv file for vegetation matching the user input.
@@ -54,7 +56,8 @@ def habitat_search(column, entry):
     else:
         df = pd.read_csv('plantdata.csv', encoding='unicode_escape')
     df1 = df.dropna()
-    def search(column,entry,df):
+
+    def search(column, entry, df):
         df2 = df1.to_numpy()
         column = df[column]
         for i in range(len(column)):
@@ -65,6 +68,7 @@ def habitat_search(column, entry):
             print('')
 
     search(column, entry, df1)
+
 
 def search_by_habitat():
     """Function that enables the user to provide habitat input in console.
@@ -78,6 +82,7 @@ def search_by_habitat():
     habitat = input('Enter name of habitat\n')
     habitat_search('habitat', habitat)
     print('Status 1 equals nativ')
+
 
 def point_in_bound(filename, x, y, area):
     """Function that checks if the coordinates provided by the user are in bound of the shapefile polygon.
@@ -102,7 +107,7 @@ def point_in_bound(filename, x, y, area):
         query = "habitat = '" + area + "'"
         search_db_via_query(query)
         print('Enter 1 if you want elevation data for the coordinates\nEnter 2 if you dont want elevation data')
-        src = 2 #int(input('Enter here:'))
+        src = int(input('Enter here:'))
 
         if src == 1:
             elevation(x, y)
@@ -111,7 +116,8 @@ def point_in_bound(filename, x, y, area):
     else:
         print('\ncoordinates out of \n' + area + '\nplease check provided shapefile for suitable coordinates\n')
 
-def search_by_coordinates(x, y):
+
+def search_by_coordinates():
     """Function that lets the user input coordinates.
 
     After asking the user to input x and y coordinates, point_in_bound(..) gets called for the 3 provided shapefiles.
@@ -119,9 +125,13 @@ def search_by_coordinates(x, y):
 
     Returns:
     """
-    point_in_bound(os.path.abspath("..") + "\Shape\prealpinebavaria.shp", x, y, 'Alpenvorland')
-    point_in_bound(os.path.abspath("..") + "\Shape\oberrheinmaintiefland.shp", x, y, 'Oberrheinisches Tiefland')
-    point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
+    print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
+    x = float(input('Enter x coordinate\n'))
+    y = float(input('Enter y coordinate\n'))
+    point_in_bound(os.path.abspath("..")+"\Shape\prealpinebavaria.shp", x, y, 'Alpenvorland')
+    point_in_bound(os.path.abspath("..")+"\Shape\oberrheinmaintiefland.shp", x, y, 'Oberrheinisches Tiefland')
+    point_in_bound(os.path.abspath("..")+"\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
+
 
 def elevation(x, y):
     """Function used to get information about elevation at the provided coordinates.
@@ -138,7 +148,8 @@ def elevation(x, y):
     gt = layer.GetGeoTransform()
     rasterx = int((x - gt[0]) / gt[1])
     rastery = int((y - gt[3]) / gt[5])
-    print('elevation =', layer.GetRasterBand(1).ReadAsArray(rasterx,rastery, 1, 1)[0][0], 'm above sea level')
+    print('elevation =', layer.GetRasterBand(1).ReadAsArray(rasterx, rastery, 1, 1)[0][0], 'm above sea level')
+
 
 def question():
     """Function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates.
@@ -157,18 +168,18 @@ def question():
     """
     print('Enter 1 to search database by habitat with detailed information\nEnter 2 to search database by coordinates \nEnter 3 to search by habitat in csv file for a quick overview without detail')
     print('habitat search options so far:\n Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland')
-    src=int(input('Enter here:'))
+    src = int(input('Enter here:'))
 
-    if src==1:
+    if src == 1:
         habitat = input('Enter name of habitat\n')
         query = "habitat = '" + habitat + "'"
         search_db_via_query(query)
-    elif src==2:
-        print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
-        x = float(input('Enter x coordinate\n'))
-        y = float(input('Enter y coordinate\n'))
-        search_by_coordinates(x, y)
-    elif src==3:
+    elif src == 2:
+        search_by_coordinates()
+    elif src == 3:
         search_by_habitat()
     else:
         print('no data')
+
+
+question()
