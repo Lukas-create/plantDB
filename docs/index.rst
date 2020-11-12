@@ -53,21 +53,22 @@ Example
 The following will show how the tool can be used to search for suitable vegetation\n
 To choose between the three provided ways to search for vegetation, start by calling the ``question()`` function.
 
+
 .. code:: python
 
    import plantDB as re
 
    re.search.question()
 
+
 This results in an console output informing the user about the possible choices and asking for an decision.
 
-   ::Enter 1 to search database by habitat with detailed information
-   Enter 2 to search database by coordinates
-   Enter 3 to search by habitat in csv file for a quick overview without detail
-   habitat search options so far:
-   Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland
+   Enter 1 to search database by habitat with detailed information\n
+   Enter 2 to search database by coordinates\n
+   Enter 3 to search by habitat in csv file for a quick overview without detail\n
+   habitat search options so far:\n
+   Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland\n
    Enter here:
-
 
 If you want to search for plant data in the database directly, call search_db_via_query() and provide an corresponding sql - query.
 
@@ -79,8 +80,10 @@ If you want to search for plant data in the database directly, call search_db_vi
    query = "habitat = 'Alpenvorland'"
    re.search.search_db_via_query(query)
 
-The above function call will print all plants including their parameters which are located in 'Alpenvorland'. ``plantDB`` supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database.
+
+The above function call will print all plants including their parameters which are located in 'Alpenvorland'.\n ``plantDB`` supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database.
 To search directly for vegetation via coordinate input without starting with question() first, you need to provide x and y coordinates before calling it.
+
 
 .. code:: python
 
@@ -95,13 +98,14 @@ To search directly for vegetation via coordinate input without starting with que
 
 The possibility to receive additional elevation data for the above entered coordinates is then offered through the point_in_bound() function via the console.
 
-    ::Enter 1 if you want elevation data for the coordinates
-    Enter 2 if you dont want elevation data
+    Enter 1 if you want elevation data for the coordinates\n
+    Enter 2 if you dont want elevation data\n
     Enter here:
    
 The last available search option is to search for vegetation in the csv file. To achieve this, call search_by_habitat().
 
-..code:: python
+
+.. code:: python
 
   import plantDB as re
 
