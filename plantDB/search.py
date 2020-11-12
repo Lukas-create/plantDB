@@ -172,9 +172,3 @@ def question():
         search_by_habitat()
     else:
         print('no data')
-
-#question()
-
-
-
-

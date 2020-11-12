@@ -58,8 +58,6 @@ def inputquestion():
     else:
         print('only able to import data to table using csv file or sql command')
 
-
-inputquestion()
 cursor.execute("SELECT * FROM plants")
 content = cursor.fetchall()
 print(content)
