@@ -75,7 +75,7 @@ html_theme_options = {
                         'binderhub_url': 'https://mybinder.org',
                         'collapse_navigation': False},
     'prev_next_buttons_location': 'bottom',
-    'repository_url': 'https://github.com/Lukas-create/Riverengineering/',
+    'repository_url': 'https://github.com/Lukas-create/plantDB/',
     'repository_branch': 'master',
     'use_edit_page_button': False,
     'use_repository_button': True,

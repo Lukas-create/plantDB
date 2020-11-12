@@ -36,9 +36,9 @@ def search_db_via_query(query):
     connection.close()
 
 def habitat_search(column, entry):
-    """function searching for vegetation matching the users input
+    """function searches in csv file for vegetation matching the user input
 
-    the function uses the user input to search for matching entries in the provided csv file,
+    the function uses the console input to search for matching entries in the provided csv file,
     if there are matching entries the function print_habitat gets called to print the information in the python console
 
     Args:
@@ -93,7 +93,7 @@ def point_in_bound(filename, x, y, area):
         area: name of the study area
 
     Returns:
-        text string to console
+        string to console
     """
     file_shape = gpd.read_file(filename)
     polygon = list(file_shape.geometry)[0]
@@ -118,7 +118,7 @@ def search_by_coordinates():
     afterwards the user gets asked if he wants to receive elevation data for the input coordinates
 
     Returns:
-        nothing
+        -
     """
     print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
     x = float(input('Enter x coordinate\n'))
@@ -135,7 +135,7 @@ def elevation(x, y):
         y: y - coordinate
 
     Returns:
-        elevation data at coordinate input in console
+        elevation data for coordinate input in console
 
     '''
     file = os.path.abspath("..") + "\Shape\Shape.vrt"
@@ -148,8 +148,8 @@ def elevation(x, y):
 def question():
     """function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates
 
-    prints string in console to ask the user if he wants to search by putting in coordinates or the name of the habitat,
-    furthermore is asking the user if he wants to search by the name of the habitat in the provided csv file or database.
+    the function prints a string in the console to ask the user if he wants to search by putting in coordinates or the name of the habitat,
+    furthermore it is asking the user if he wants to search by the name of the habitat in the provided csv file or database.
     If option 1 is chosen, user is asked for an habitat name before calling search_db_via_query()
 
     Args:
@@ -175,7 +175,7 @@ def question():
     else:
         print('no data')
 
-#question()
+question()
 
 
 
