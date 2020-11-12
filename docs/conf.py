@@ -26,7 +26,7 @@ sys.path.append(os.path.abspath('..') + '/plantDB')
 
 # the following modules will be mocked (i.e. bogus imports - required for C-dependent packages)
 autodoc_mock_imports = ['alphashape', 'numpy', 'gdal', 'geopandas', 'rasterstats', 'scikit-image',
-                        'osr', 'pandas', 'shapely', 'tabulate', 'sqlite3', 'os', 'platform']
+                        'osr', 'pandas', 'shapely', 'tabulate', 'sqlite3', 'os', 'platform', 'csv']
 
 import sphinx_rtd_theme
 from sphinx.locale import _

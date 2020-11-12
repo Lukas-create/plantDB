@@ -102,7 +102,7 @@ def point_in_bound(filename, x, y, area):
         query = "habitat = '" + area + "'"
         search_db_via_query(query)
         print('Enter 1 if you want elevation data for the coordinates\nEnter 2 if you dont want elevation data')
-        src = int(input('Enter here:'))
+        src = 2 #int(input('Enter here:'))
 
         if src == 1:
             elevation(x, y)
@@ -111,7 +111,7 @@ def point_in_bound(filename, x, y, area):
     else:
         print('\ncoordinates out of \n' + area + '\nplease check provided shapefile for suitable coordinates\n')
 
-def search_by_coordinates():
+def search_by_coordinates(x, y):
     """Function that lets the user input coordinates.
 
     After asking the user to input x and y coordinates, point_in_bound(..) gets called for the 3 provided shapefiles.
@@ -119,9 +119,6 @@ def search_by_coordinates():
 
     Returns:
     """
-    print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
-    x = float(input('Enter x coordinate\n'))
-    y = float(input('Enter y coordinate\n'))
     point_in_bound(os.path.abspath("..") + "\Shape\prealpinebavaria.shp", x, y, 'Alpenvorland')
     point_in_bound(os.path.abspath("..") + "\Shape\oberrheinmaintiefland.shp", x, y, 'Oberrheinisches Tiefland')
     point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
@@ -167,7 +164,10 @@ def question():
         query = "habitat = '" + habitat + "'"
         search_db_via_query(query)
     elif src==2:
-        search_by_coordinates()
+        print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
+        x = float(input('Enter x coordinate\n'))
+        y = float(input('Enter y coordinate\n'))
+        search_by_coordinates(x, y)
     elif src==3:
         search_by_habitat()
     else:

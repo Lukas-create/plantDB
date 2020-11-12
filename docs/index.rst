@@ -57,10 +57,11 @@ Following are three code block examples giving insight on how to use the tool
    import plantDB as re
 
    #To search for plant data via coordinate input, start by calling search_by_coordinates() in search.
+   x = 1224215.445015
+   y = 6131105.778117
+   re.search.search_by_coordinates(x, y)
 
-   re.search.search_by_coordinates()
-
-   #By calling the function the user gets asked to provide x and y coordinates in the python console
+   #the coordinates above are used as an example
 
 
    #After providing coordinates in the console, point_in_bound() gets called to check if the coordinates are matching any of the provided shapefiles. If they are inside one of the shapefiles, matching vegetation from the database 'Pflanzendaten.db' gets printed in the console
