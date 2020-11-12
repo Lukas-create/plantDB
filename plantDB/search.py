@@ -1,6 +1,4 @@
-"""
-functions related to search for vegetation matching the users input
-"""
+"""functions related to search for vegetation matching the users input"""
 import geopandas as gpd
 import numpy as np
 import pandas as pd
@@ -12,12 +10,14 @@ from plant import Plant
 from shapely.geometry import Point
 from tabulate import tabulate
 import gdal
+import sys
+
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
 def search_db_via_query(query):
-    '''function that checks database for matching entries with user input
+    """Function that checks database for matching entries with user input.
 
-    the function take the users input and adds it to the used sql command to search for matching entries in the provided database
+    The function takes the user input and adds it to the used sql command to search for matching entries in the provided database
     if there are matching entries these will be printed in the python console
 
     Args:
@@ -25,7 +25,7 @@ def search_db_via_query(query):
 
     Returns:
         table entries matching with user input
-    '''
+    """
     connection = sqlite3.connect("Pflanzendaten.db")
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM plants WHERE " + query)
@@ -36,10 +36,10 @@ def search_db_via_query(query):
     connection.close()
 
 def habitat_search(column, entry):
-    """function searches in csv file for vegetation matching the user input
+    """Function searches in csv file for vegetation matching the user input.
 
-    the function uses the console input to search for matching entries in the provided csv file,
-    if there are matching entries the function print_habitat gets called to print the information in the python console
+    The function uses the console input to search for matching entries in the provided csv file,
+    if there are matching entries the function print_habitat gets called to print the information in the python console.
 
     Args:
         column(int): column in the .csv file
@@ -67,10 +67,10 @@ def habitat_search(column, entry):
     search(column, entry, df1)
 
 def search_by_habitat():
-    """function that enables the user to provide habitat input in console
+    """Function that enables the user to provide habitat input in console.
 
-    the function asks the user to provide the habitat name he wants to search for,
-    afterwards the input is given to the habitat_search() function and habitat_search() gets called
+    The function asks the user to provide the habitat name he wants to search for,
+    afterwards the input is given to the habitat_search() function and habitat_search() gets called.
 
     Returns:
         String in console to let the user know what the Status entries mean
@@ -80,11 +80,11 @@ def search_by_habitat():
     print('Status 1 equals nativ')
 
 def point_in_bound(filename, x, y, area):
-    """function checks if the coordinates provided by the user are matching with a shapefile
+    """Function that checks if the coordinates provided by the user are in bound of the shapefile polygon.
 
 
-    if the provided coordinates are out of bounds, a string will be printed in the console to let the user know,
-    if they are matching one of the shapefiles, search_db_via_query() gets called
+    If the provided coordinates are out of bounds, a string will be printed in the console to let the user know,
+    if they are matching one of the shapefiles, search_db_via_query() gets called.
 
     Args:
         filename: name of the shapefile
@@ -112,13 +112,12 @@ def point_in_bound(filename, x, y, area):
         print('\ncoordinates out of \n' + area + '\nplease check provided shapefile for suitable coordinates\n')
 
 def search_by_coordinates():
-    """function that lets the user input coordinates
+    """Function that lets the user input coordinates.
 
-    after asking the user to input x and y coordinates,point_in_bound(..) gets called for the 3 provided shapefiles,
-    afterwards the user gets asked if he wants to receive elevation data for the input coordinates
+    After asking the user to input x and y coordinates, point_in_bound(..) gets called for the 3 provided shapefiles.
+    Afterwards the user gets asked if he wants to receive elevation data for the input coordinates.
 
     Returns:
-        -
     """
     print('CRS used is EPSG:3857 \n for reference check https://epsg.io/3857 ')
     x = float(input('Enter x coordinate\n'))
@@ -128,7 +127,7 @@ def search_by_coordinates():
     point_in_bound(os.path.abspath("..") + "\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
 
 def elevation(x, y):
-    '''function used to get information about coordinate elevation
+    """Function used to get information about elevation at the provided coordinates.
 
     Args:
         x: x - coordinate
@@ -136,8 +135,7 @@ def elevation(x, y):
 
     Returns:
         elevation data for coordinate input in console
-
-    '''
+    """
     file = os.path.abspath("..") + "\Shape\Shape.vrt"
     layer = gdal.Open(file)
     gt = layer.GetGeoTransform()
@@ -146,9 +144,9 @@ def elevation(x, y):
     print('elevation =', layer.GetRasterBand(1).ReadAsArray(rasterx,rastery, 1, 1)[0][0], 'm above sea level')
 
 def question():
-    """function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates
+    """Function to let the user decide if he wants to search by habitat in csv file, search by habitat in database or search by coordinates.
 
-    the function prints a string in the console to ask the user if he wants to search by putting in coordinates or the name of the habitat,
+    The function prints a string in the console to ask the user if he wants to search by putting in coordinates or the name of the habitat,
     furthermore it is asking the user if he wants to search by the name of the habitat in the provided csv file or database.
     If option 1 is chosen, user is asked for an habitat name before calling search_db_via_query()
 
@@ -175,7 +173,7 @@ def question():
     else:
         print('no data')
 
-question()
+#question()
 
 
 
