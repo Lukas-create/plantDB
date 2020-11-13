@@ -83,7 +83,7 @@ If you want to search for plant data in the database directly, call search_db_vi
    re.search.search_db_via_query(query)
 
 
-..note:: If you start by calling question(),  you get asked for a query in the console and dont need to manually add it.
+.. note:: If you start by calling question(),  you get asked for a query in the console and dont need to manually add it.
 
 
 The above function call will print all plants including their parameters which are located in 'Alpenvorland'.\n ``plantDB`` supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database.
@@ -121,9 +121,9 @@ The last available search option is to search for vegetation in the csv file. To
 
 .. code:: python
 
-  import plantDB as re
+   import plantDB as re
 
-  re.search.search_by_habitat()
+   re.search.search_by_habitat()
 
 
  You will get asked to provide a habitat name you want to search plants for, afterwards all plants where your input matches witch their habitat entry in the csv file will get printed.
