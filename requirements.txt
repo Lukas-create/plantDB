@@ -7,3 +7,7 @@ shapely
 gdal
 geopandas
 alphashape
+tabulate
+os
+platform
+sqlite3

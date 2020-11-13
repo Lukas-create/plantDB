@@ -63,11 +63,11 @@ To choose between the three provided ways to search for vegetation, start by cal
 
 This results in an console output informing the user about the possible choices and asking for an decision.
 
-   Enter 1 to search database by habitat with detailed information\n
-   Enter 2 to search database by coordinates\n
-   Enter 3 to search by habitat in csv file for a quick overview without detail\n
-   habitat search options so far:\n
-   Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland\n
+   Enter 1 to search database by habitat with detailed information\
+   Enter 2 to search database by coordinates\
+   Enter 3 to search by habitat in csv file for a quick overview without detail\
+   habitat search options so far:\
+   Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland\
    Enter here:
 
 If you want to search for plant data in the database directly, call search_db_via_query() and provide an corresponding sql - query.
@@ -82,25 +82,30 @@ If you want to search for plant data in the database directly, call search_db_vi
 
 
 The above function call will print all plants including their parameters which are located in 'Alpenvorland'.\n ``plantDB`` supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database.
-To search directly for vegetation via coordinate input without starting with question() first, you need to provide x and y coordinates before calling it.
+To search directly for vegetation via coordinate input without starting with question() first, simply call search_by_coordinates().
 
 
 .. code:: python
 
    import plantDB as re
 
-   x = example x-coordinate
-   y = example y-coordinate
-   re.search.search_by_coordinates(x,y) #If you start by calling the question() function, you'll get asked for coordinate input before search_by_coordinates() gets called which makes this step unnecessary
-   point_in_bound(os.path.abspath("..")+"\Shape\prealpinebavaria.shp", x, y, 'Alpenvorland')
-   point_in_bound(os.path.abspath("..")+"\Shape\oberrheinmaintiefland.shp", x, y, 'Oberrheinisches Tiefland')
-   point_in_bound(os.path.abspath("..")+"\Shape\Tiefland.shp", x, y, 'Niederrheinisches Tiefland')
+   re.search.search_by_coordinates(x,y)
 
-The possibility to receive additional elevation data for the above entered coordinates is then offered through the point_in_bound() function via the console.
 
-    Enter 1 if you want elevation data for the coordinates\n
-    Enter 2 if you dont want elevation data\n
-    Enter here:
+By doing so, you will get asked to provide x and y coordinates in the console
+
+    CRS used is EPSG:3857\
+    for reference check https://epsg.io/3857\
+    Enter x coordinate\
+    1267965.259120\
+    Enter y coordinate\
+    6090686.743663\
+
+The possibility to receive additional elevation data for the above entered coordinates is then offered through the then called function point_in_bound()  via the console.
+
+    Enter 1 if you want elevation data for the coordinates\
+    Enter 2 if you dont want elevation data\
+    Enter here:\
    
 The last available search option is to search for vegetation in the csv file. To achieve this, call search_by_habitat().
 
@@ -110,6 +115,23 @@ The last available search option is to search for vegetation in the csv file. To
   import plantDB as re
 
   re.search.search_by_habitat()
+
+
+ You will get asked to provide a habitat name you want to search plants for, afterwards all plants where your input matches witch their habitat entry in the csv file will get printed.
+
+    Enter name of habitat
+    Alpenvorland
+
+    scientific name:
+    Alnus incana
+    common german name:
+    Grauerle
+    status:
+    1
+    endangered?:
+    not endangered
+
+ The example above is one plant that gets printed if you should choose to search for plants in the habitat 'Alpenvorland'.
 
 
 Requirements
