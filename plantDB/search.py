@@ -1,5 +1,5 @@
 """functions related to search for vegetation matching the users input"""
-import geopandas as gpd
+import geopandas as geopandas
 import numpy as np
 import pandas as pd
 import os
@@ -22,7 +22,7 @@ def search_db_via_query(query):
     if there are matching entries these will be printed in the python console
 
     Args:
-        query: habitat name in sql, provided by the user
+        query (string): habitat name in sql, provided by the user
 
     Returns:
         table entries matching with user input
@@ -92,15 +92,15 @@ def point_in_bound(filename, x, y, area):
     if they are matching one of the shapefiles, search_db_via_query() gets called.
 
     Args:
-        filename: name of the shapefile
-        x: x - coordinate
-        y: y - coordinate
-        area: name of the study area
+        filename (string): name of the shapefile
+        x (float): x - coordinate
+        y (float): y - coordinate
+        area (string): name of the study area
 
     Returns:
         string to console
     """
-    file_shape = gpd.read_file(filename)
+    file_shape = geopandas.read_file(filename)
     polygon = list(file_shape.geometry)[0]
     point = Point(x, y)
     if polygon.contains(point):
@@ -137,8 +137,8 @@ def elevation(x, y):
     """Function used to get information about elevation at the provided coordinates.
 
     Args:
-        x: x - coordinate
-        y: y - coordinate
+        x (float): x - coordinate
+        y (float): y - coordinate
 
     Returns:
         elevation data for coordinate input in console
@@ -181,4 +181,5 @@ def question():
     else:
         print('no data')
 
-search_by_habitat()
+
+elevation(1288346.111747, 6130631.853613)

@@ -1,5 +1,6 @@
 import csv
 import sqlite3
+from tabulate import tabulate
 
 connection = sqlite3.connect("Pflanzendaten.db")
 cursor = connection.cursor()
@@ -59,4 +60,6 @@ def inputquestion():
 
 cursor.execute("SELECT * FROM plants")
 content = cursor.fetchall()
-print(content)
+print(tabulate((content), headers=['species', 'name', 'nativ', 'endangered', 'habitat', 'waterdepthmin', 'waterdepthmax', 'rootdepth', 'groundwatertablechange', 'floodheightmax', 'floodloss', 'floodduration']))
+
+

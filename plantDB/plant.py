@@ -12,18 +12,18 @@ class Plant:
         """
 
         Args:
-            species: scientific name
-            name: common german name
-            nativ: equals 1 if the plant is nativ, 0 if its not
-            habitat: habit name of the plant
-            endangered: information about the endangerment status of the plant
-            waterdepthmin: minimal required water depth
-            waterdepthmax: maximum depth to groundwater
-            rootdepth: average root depth
-            groundwatertablechange: maximum change in groundwater table that the plant can survive
-            floodheightmax: maximum flood height the plant can survive
-            floodloss: losses during maximum height and days that occured in plant population
-            flooddurationmax: maximum day of flooding the plant can survive
+            species (str): scientific plant name
+            name (str): common german plant name
+            nativ (bool): equals 1 if the plant is nativ, 0 if its not
+            habitat (str): habit name of the plant
+            endangered (str): information about the endangerment status of the plant
+            waterdepthmin (int): minimal required water depth
+            waterdepthmax (int): maximum depth to groundwater
+            rootdepth (int): average root depth
+            groundwatertablechange (varchar): maximum change in groundwater table that the plant can survive
+            floodheightmax (int): maximum flood height the plant can survive
+            floodloss (real): losses during maximum flood height and flooding days that occured in plant population
+            flooddurationmax (int): maximum number of flooding days the plant can survive
         """
         self.species = species
         self.name_german = name
