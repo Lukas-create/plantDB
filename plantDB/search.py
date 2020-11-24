@@ -22,7 +22,7 @@ def search_db_via_query(query):
     if there are matching entries these will be printed in the python console
 
     Args:
-        query (string): habitat name in sql, provided by the user
+        query (str): habitat name in sql, provided by the user
 
     Returns:
         table entries matching with user input
@@ -44,8 +44,8 @@ def habitat_search(column, entry):
     if there are matching entries the function print_habitat gets called to print the information in the python console.
 
     Args:
-        column(int): column in the .csv file
-        entry(int): entry in the .csv file
+        column(str): column in the .csv file
+        entry(str): entry in the .csv file
 
     Returns:
         String in console
@@ -92,10 +92,10 @@ def point_in_bound(filename, x, y, area):
     if they are matching one of the shapefiles, search_db_via_query() gets called.
 
     Args:
-        filename (string): name of the shapefile
+        filename (str): name of the shapefile
         x (float): x - coordinate
         y (float): y - coordinate
-        area (string): name of the study area
+        area (str): name of the study area
 
     Returns:
         string to console
@@ -159,9 +159,9 @@ def question():
     If option 1 is chosen, user is asked for an habitat name before calling search_db_via_query()
 
     Args:
-        1: calls search_db_via_query()
-        2: calls search_by_coordinates()
-        3: calls search_by_habitat()
+        1 (int): calls search_db_via_query()
+        2 (int): calls search_by_coordinates()
+        3 (int): calls search_by_habitat()
 
     Returns:
         text string 'no data' if the input is anything else then 1, 2 or 3

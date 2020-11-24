@@ -64,12 +64,12 @@ To choose between the three provided ways to search for vegetation, start by cal
 This results in an console output informing the user about the possible choices and asking for an decision.
 
 
-   Enter 1 to search database by habitat with detailed information<br>
-   Enter 2 to search database by coordinates<br>
-   Enter 3 to search by habitat in csv file for a quick overview without detail<br>
-   habitat search options so far:<br>
-   Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland<br>
-   Enter here:<br>
+   |Enter 1 to search database by habitat with detailed information
+   |Enter 2 to search database by coordinates
+   |Enter 3 to search by habitat in csv file for a quick overview without detail
+   |habitat search options so far:
+   |Alpenvorland, Niederrheinisches Tiefland, Oberrheinisches Tiefland
+   |Enter here:
 
 
 If you want to search for plant data in the database directly, call search_db_via_query() and provide an corresponding sql - query.
@@ -83,7 +83,7 @@ If you want to search for plant data in the database directly, call search_db_vi
    re.search.search_db_via_query(query)
 
 
-.. note:: If you start by calling question(),  you get asked for a query in the console and dont need to manually add it.
+.. note:: If you start by calling question(),  you get asked for a query in the console and don't need to manually add it.
 
 
 The above function call will print all plants including their parameters which are located in 'Alpenvorland'. ``plantDB`` supports arbitrary sql-querys over the datafields in the provided 'Pflanzendaten.db' database.
@@ -100,20 +100,20 @@ To search directly for vegetation via coordinate input without starting with que
 By doing so, you will get asked to provide x and y coordinates in the console
 
 
-    CRS used is EPSG:3857
-    for reference check https://epsg.io/3857
-    Enter x coordinate
-    1267965.259120
-    Enter y coordinate
-    6090686.743663
+    |CRS used is EPSG:3857
+    |for reference check https://epsg.io/3857
+    |Enter x coordinate
+    |1267965.259120
+    |Enter y coordinate
+    |6090686.743663
 
 
 The possibility to receive additional elevation data for the above entered coordinates is then offered through the then called function point_in_bound()  via the console.
 
 
-    Enter 1 if you want elevation data for the coordinates
-    Enter 2 if you dont want elevation data
-    Enter here:
+    |Enter 1 if you want elevation data for the coordinates
+    |Enter 2 if you dont want elevation data
+    |Enter here:
 
 
 The last available search option is to search for vegetation in the csv file. To achieve this, call search_by_habitat().
@@ -129,21 +129,20 @@ The last available search option is to search for vegetation in the csv file. To
 You will get asked to provide a habitat name you want to search plants for, afterwards all plants where your input matches witch their habitat entry in the csv file will get printed.
 
 
-    Enter name of habitat
-    Alpenvorland
+    |Enter name of habitat
+    |Alpenvorland
 
-    scientific name:
-    Alnus incana
-    common german name:
-    Grauerle
-    status:
-    1
-    endangered?:
-    not endangered
+    |scientific name:
+    |Alnus incana
+    |common german name:
+    |Grauerle
+    |status:
+    |1
+    |endangered?:
+    |not endangered
 
 
-
- The example above is one plant that gets printed if you should choose to search for plants in the habitat 'Alpenvorland'.
+The example above is one plant that gets printed if you should choose to search for plants in the habitat 'Alpenvorland'.
 
 
 Requirements
@@ -162,6 +161,10 @@ Requirements
    * os
    * sqlite3
 
+
+
+Database
+==================
 
 
 Code Documentation
