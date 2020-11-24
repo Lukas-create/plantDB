@@ -6,11 +6,10 @@ import os
 import platform
 import sqlite3
 from gdal import ogr
-from plant import Plant
 from shapely.geometry import Point
 from tabulate import tabulate
 import gdal
-
+from plantDB.plant import Plant
 
 shp_driver = ogr.GetDriverByName("ESRI Shapefile")
 
@@ -182,4 +181,4 @@ def question():
         print('no data')
 
 
-elevation(1288346.111747, 6130631.853613)
+
