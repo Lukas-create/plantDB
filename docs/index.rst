@@ -174,7 +174,7 @@ Requirements
 Database
 ==================
 
-
+The database used in this tool is created with sqlite3 and
 Code Documentation
 ==================
 
