@@ -22,7 +22,7 @@ class Plant:
             rootdepth (int): average root depth
             groundwatertablechange (varchar): maximum change in groundwater table that the plant can survive
             floodheightmax (int): maximum flood height the plant can survive
-            floodloss (real): losses during maximum flood height and flooding days that occured in plant population
+            floodloss (float): losses during maximum flood height and flooding days that occured in plant population
             flooddurationmax (int): maximum number of flooding days the plant can survive
         """
         self.species = species

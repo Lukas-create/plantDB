@@ -8,11 +8,11 @@ cursor = connection.cursor()
 
 sql_command = """
 CREATE TABLE IF NOT EXISTS plants (
-species VARCHAR(255),
-name VARCHAR(255),
+species TEXT(255),
+name TEXT(255),
 nativ BOOLEAN,
-endangered VARCHAR(255),
-habitat VARCHAR(255),
+endangered TEXT(255),
+habitat TEXT(255),
 waterdepthmin INTEGER(255),
 waterdepthmax  INTEGER(255),
 rootdepth INTEGER(255),
@@ -60,6 +60,7 @@ def inputquestion():
 
 cursor.execute("SELECT * FROM plants")
 content = cursor.fetchall()
-print(tabulate((content), headers=['species', 'name', 'nativ', 'endangered', 'habitat', 'waterdepthmin', 'waterdepthmax', 'rootdepth', 'groundwatertablechange', 'floodheightmax', 'floodloss', 'floodduration']))
+print(tabulate(content))
+
 
 
