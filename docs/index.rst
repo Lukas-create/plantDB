@@ -64,6 +64,8 @@ To choose between the three provided ways to search for vegetation, start by cal
 This results in an console output informing the user about the possible choices and asking for an decision.
 
 
+::
+
    Enter 1 to search database by habitat with detailed information
    Enter 2 to search database by coordinates
    Enter 3 to search by habitat in csv file for a quick overview without detail
@@ -100,6 +102,8 @@ To search directly for vegetation via coordinate input without starting with que
 By doing so, you will get asked to provide x and y coordinates in the console
 
 
+::
+
     CRS used is EPSG:3857
     for reference check https://epsg.io/3857
     Enter x coordinate
@@ -110,6 +114,8 @@ By doing so, you will get asked to provide x and y coordinates in the console
 
 The possibility to receive additional elevation data for the above entered coordinates is then offered through the then called function point_in_bound()  via the console.
 
+
+::
 
     Enter 1 if you want elevation data for the coordinates
     Enter 2 if you dont want elevation data
@@ -128,6 +134,8 @@ The last available search option is to search for vegetation in the csv file. To
 
 You will get asked to provide a habitat name you want to search plants for, afterwards all plants where your input matches witch their habitat entry in the csv file will get printed.
 
+
+::
 
     Enter name of habitat
     Alpenvorland
