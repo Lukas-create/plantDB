@@ -200,7 +200,7 @@ Code Documentation
 Package structure
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: https://github.com/Lukas-create/plantDB/blob/master/docs/img/w2p_structure_jpeg.jpeg
+.. figure:: https://github.com/Lukas-create/plantDB/blob/master/docs/img/w2p_png.png
    :alt: structure
 
 
