@@ -174,14 +174,33 @@ Requirements
 Database
 ==================
 
-The database used in this tool is created with sqlite3 and
+The database ``Pflanzendaten`` used in this tool is an relational database which was created using SQL. The database consists of one table called ``plants`` which includes all the gathered plant data of the following types:
+
+::
+
+    species (str): scientific plant name
+    name (str): common german plant name
+    nativ (bool): equals 1 if the plant is nativ, 0 if its not
+    habitat (str): habit name of the plant
+    endangered (str): information about the endangerment status of the plant
+    waterdepthmin (int): minimal required water depth [cm]
+    waterdepthmax (int): maximum depth to groundwater [cm]
+    rootdepth (int): average root depth [cm]
+    groundwatertablechange (varchar): maximum change in groundwater table that the plant can survive [cm]
+    floodheightmax (int): maximum flood height the plant can survive [cm]
+    floodloss (float): losses during maximum flood height and flooding days that occured in plant population [%]
+    flooddurationmax (int): maximum number of flooding days the plant can survive [d]
+
+They are matching the arguments from the created class ``Plant``.
+The entries species, name and habitat are defined as primary keys, preventing the insertion of possible duplicates.
+
 Code Documentation
 ==================
 
 Package structure
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. figure:: https://en.wikipedia.org/wiki/File:UML_diagrams_overview.svg
+.. figure:: https://github.com/Lukas-create/plantDB/tree/master/docs/img/w2p_structure.png
    :alt: structure
 
 
