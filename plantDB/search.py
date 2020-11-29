@@ -49,7 +49,6 @@ def habitat_search(column, entry):
     Returns:
         String in console
     """
-    df = pd.read_csv('plantdata.csv', encoding='unicode_escape')
     if platform.system() == 'Linux':
         df = pd.read_csv('plantdata.csv')
     else:
@@ -179,6 +178,3 @@ def question():
         search_by_habitat()
     else:
         print('no data')
-
-
-
