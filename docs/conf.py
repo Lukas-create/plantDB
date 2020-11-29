@@ -47,7 +47,8 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.githubpages',
     'sphinx.ext.todo',
-    'sphinx_thebe'
+    'sphinx_thebe',
+    'jupyter_sphinx.execute'
 ]
 
 templates_path = ['_templates']

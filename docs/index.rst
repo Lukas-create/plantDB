@@ -1,3 +1,15 @@
+.. toctree::
+   :maxdepth: 2
+
+   Plant database
+   Installation
+   Usage
+   Requirements
+   Database
+   Code Documentation
+   Scripts and functions
+   jupyter_example.ipynb
+
 Plant database
 ======================================
 
@@ -224,6 +236,12 @@ SQL mgmt
 .. automodule:: sqlinput
    :members:
 
+Jupyter example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+:example:
+.. jupyter-execute::
+
+   import jupyter_example
 
 Contributing
 =======================
